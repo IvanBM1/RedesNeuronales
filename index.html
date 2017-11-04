@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Inicio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<link rel="stylesheet" href="css/AppStyle.css">
+	<link rel="stylesheet" href="css/InputColor.css">
+</head>
+
+<body>
+	<div class="parallax-container">
+		<div class="parallax"><img src="images/background.png"></div>
+		<div class="container">
+
+			<!-- LOGO Y TEXTO -->
+			<div class="row TopSpace">
+				<div class="col m1 right-align">
+					<img src="images/logo.png" class="circle responsive-img">
+				</div>
+				<div class="col m8 TitleColor">
+					<h4 class="TitleMargin">Redes Neuronales</h4>
+					<h6 class="TitleMargin SubTitleColor"><strong>Tratamiento de Información</strong></h6>
+				</div>
+			</div>
+
+			<div class="row">
+				
+				<!-- BLOQUE IZQUIERDO -->
+				<div class="col m3">
+					<ul class="collection">
+						<a id="BtnBoxMain" 		href="" class="collection-item center-align"><i class="material-icons medium grey-text">data_usage</i></a>
+						<a id="BtnBoxCreate" 	href="" class="collection-item grey-text text-darken-3"><i class="material-icons  teal-text ">assignment</i> Red Neuronal</a>
+						<a id="BtnBoxTraining" 	href="" class="collection-item grey-text text-darken-3"><i class="material-icons  teal-text ">fitness_center</i> Entrenar</a>
+						<a id="BtnBoxTest" 		href="" class="collection-item grey-text text-darken-3"><i class="material-icons  teal-text ">flash_on</i> Probar</a>
+					</ul>
+				</div>
+
+				<!-- BLOQUE DERECHO / INICIO -->
+				<div id="BOXMain" class="container col m9 BoxColor">
+					<div class="row MarginBottom0">
+						<div id="particles-js"></div>
+					</div>
+				</div>
+
+				<!-- BLOQUE DERECHO / CREAR RED -->
+				<div id="BOXCreateNetwork" class="container col m9 BoxColor">
+
+					<!-- TAB LIST -->
+					<ul class="tabs">
+						<li class="tab col s4"><a href="#tabCreate" class="deep-orange-text text-darken-4">Crear</a></li>
+						<li class="tab col s4"><a href="#tabLoad" class="deep-orange-text text-darken-4">Cargar</a></li>
+						<li class="tab col s4"><a href="#tabNetworkInfo" class="deep-orange-text text-darken-4">Información</a></li>
+					</ul>
+
+					<!-- TAB CREAR RED -->
+					<div id="tabCreate" class="col m12">
+						<div class="row">
+							<h4 class="center-align">Crear</h4>
+						</div>
+
+						<!-- INPUT NOMBRE -->
+						<div class="row col m6 offset-m3 center-align InputMarginBottom">
+							<div class="input-field">
+								<i class="material-icons prefix  teal-text">create</i>
+								<label for="Name">Nombre</label>
+								<input id="Name" type="text">
+							</div>
+						</div>
+
+						<!-- INPUT DEFINICION -->
+						<div class="row col m6 offset-m3 center-align InputMarginBottom">
+							<div class="input-field">
+								<i class="material-icons prefix  teal-text">blur_on</i>
+								<label for="Definition">Definición</label>
+								<input id="Definition" type="text">
+							</div>
+						</div>
+
+						<!-- INPUT APRENDIZAJE / MOMENTUM -->
+						<div class="row col m6 offset-m3 center-align InputMarginBottom">
+							<div class="col m6">
+								<div class="input-field">
+									<i class="material-icons prefix  teal-text">lightbulb_outline</i>
+									<label for="LearningRate">Aprendizaje</label>
+									<input id="LearningRate" type="number" min="0" step="0.1" max="1">
+								</div>
+							</div>
+							<div class="col m6">
+								<div class="input-field">
+									<i class="material-icons prefix  teal-text">timeline</i>
+									<label for="LearningMomentum">Momentum</label>
+									<input id="LearningMomentum" type="number" min="0" step="0.1" max="1">
+								</div>
+							</div>
+						</div>
+
+						<!-- INPUT FUNCION DE ACTIVACION -->
+						<div class="row col m6 offset-m3 InputMarginBottom">
+							<div class="input-field">
+				 				<i class="material-icons prefix  teal-text">functions</i>
+								<select id="ActivationFunction">
+									<option value="" disabled selected>Función de Activación</option>
+									<option value="LINEAR">LINEAR</option>
+									<option value="THRESHOLD">THRESHOLD</option>
+									<option value="THRESHOLD_SYMMETRIC">THRESHOLD_SYMMETRIC</option>
+									<option value="SIGMOID">SIGMOID</option>
+									<option value="SIGMOID_STEPWISE">SIGMOID_STEPWISE</option>
+									<option value="SIGMOID_SYMMETRIC">SIGMOID_SYMMETRIC</option>
+									<option value="SIGMOID_SYMMETRIC_STEPWISE">SIGMOID_SYMMETRIC_STEPWISE</option>
+									<option value="GAUSSIAN">GAUSSIAN</option>
+									<option value="GAUSSIAN_SYMMETRIC">GAUSSIAN_SYMMETRIC</option>
+									<option value="GAUSSIAN_STEPWISE">GAUSSIAN_STEPWISE</option>
+									<option value="ELLIOT">ELLIOT</option>
+									<option value="ELLIOT_SYMMETRIC">ELLIOT_SYMMETRIC</option>
+									<option value="LINEAR_PIECE">LINEAR_PIECE</option>
+									<option value="LINEAR_PIECE_SYMMETRIC">LINEAR_PIECE_SYMMETRIC</option>
+									<option value="SIN_SYMMETRIC">SIN_SYMMETRIC</option>
+									<option value="COS_SYMMETRIC">COS_SYMMETRIC</option>
+									<option value="SIN">SIN</option>
+									<option value="COS">COS</option>
+								</select>
+							</div>
+						</div>
+
+						<!-- BOTON CREAR RED -->
+						<div class="row col m6 offset-m3 center-align">
+							<div class="input-field">
+								<input id="BtnCreate" type="button" class="btn deep-orange darken-4" value="Crear">
+							</div>
+						</div>
+					</div>
+
+					<!-- TAB CARGAR RED -->
+					<div id="tabLoad" class="col m12">
+						<div class="row">
+							<h4 class="center-align">Cargar</h4>
+						</div>
+
+						<!-- INPUT ARCHIVO RED NEURONAL -->
+						<div class="row col m6 offset-m3 center-align">
+							<label for="FileNeuralNetwork">Archivo con la red neuronal</label>
+							<div class="file-field input-field">
+								<div class="btn teal">
+									<span><i class="material-icons">search</i></span>
+									<input id="FileNeuralNetwork" type="file" accept=".IBM">
+								</div>
+								<div class="file-path-wrapper">
+									<input type="text" class="file-path validate">
+								</div>
+							</div>
+						</div>
+
+						<!-- BOTON CREAR RED -->
+						<div class="row col m6 offset-m3 center-align">
+							<div class="input-field">
+								<input id="BtnLoadNetwork" type="button" class="btn deep-orange darken-4" value="Cargar">
+							</div>
+						</div>
+					</div>
+
+					<!-- TAB INFORMACION DE LA RED -->
+					<div id="tabNetworkInfo" class="col m12">
+						
+						<table id="BoxNetworkInfo" class="striped responsive-table">
+							<tbody>
+								<tr>
+									<td>Nombre</td>
+									<td id="InfoName">-</td>
+								</tr>
+								<tr>
+									<td>Definición</td>
+									<td id="InfoDefinition">-</td>
+								</tr>
+								<tr>
+									<td>Aprendizaje</td>
+									<td id="InfoLearningRate">-</td>
+								</tr>
+								<tr>
+									<td>Momentum</td>
+									<td id="InfoLearningMomentum">-</td>
+								</tr>
+								<tr>
+									<td>Funcion de Activación</td>
+									<td id="InfoFunction">-</td>
+								</tr>
+								<!-- TABLA ESPECIAL PARA MOSTRAR DATOS -->
+								<tr class="InfoTraining">
+									<td><strong>Entrenada</strong></td>
+									<td>
+										<div class="row MarginBottom0">
+											<h5 id="InfoFileName">-</h5>
+											<a id="BtnViewData" class="btn deep-orange darken-4 ">Original</a>
+											<a id="BtnViewDataNormalized" class="btn teal">Normalizados</a>
+										</div>
+									</td>
+								</tr>
+								<tr class="InfoTraining">
+									<td>Datos Utilizados</td>
+									<td id="InfoTypeData"></td>
+								</tr>
+
+							</tbody>
+						</table>
+
+						<!-- MODAL INFORMACION DEL ARCHIVO QUE SE USO EN EL ENTRENAMIENTO -->
+						<div id="ModalFile" class="modal modal-fixed-footer">
+							<div class="modal-content">
+								<h3 id="ModalFileName" class="center-align">Header</h3>
+								<div class="input-field">
+									<table class="striped responsive-table">
+										<thead>
+											<th>Atributos</th>
+											<th>Clase</th>
+										</thead>
+										<tbody id="ModalText">
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Ok</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- BLOQUE DERECHO / ENTRENAR RED -->
+				<div id="BOXTrainingNetwork" class="container col m9 BoxColor">
+					
+					<!-- TAB LIST -->
+					<ul class="tabs">
+						<li class="tab col s6"><a href="#tabTraining" class="deep-orange-text text-darken-4">Entrenar</a></li>
+						<li class="tab col s6"><a href="#tabTrainingResults" class="deep-orange-text text-darken-4">Resultados</a></li>
+					</ul>
+
+					<!-- TAB ENTRENAMIENTO -->
+					<div id="tabTraining" class="col s12 active">
+						
+						<!-- TITULO DEL TAB -->
+						<div class="row">
+							<h4 class="center-align">Entrenamiento</h4>
+						</div>
+
+						<!-- INPUT ERROR -->
+						<div class="row col m6 offset-m3 center-align InputMarginBottom">
+							<div class="input-field">
+								<i class="material-icons prefix teal-text">error</i>
+								<label for="Error">Error Mínimo</label>
+								<input id="Error" type="number" min="0" step="0.01">
+							</div>
+						</div>
+
+						<!-- INPUT EPOCAS -->
+						<div class="row col m6 offset-m3 center-align InputMarginBottom">
+							<div class="input-field">
+								<i class="material-icons prefix teal-text">timelapse</i>
+								<label for="Epoch">Épocas</label>
+								<input id="Epoch" type="number" min="0" max="1000" step="5">
+							</div>
+						</div>
+
+						<!-- INPUT ARCHIVO DATOS DE ENTRENAMIENTO -->
+						<div class="row col m6 offset-m3 center-align">
+							<label for="FileTrainingData">Archivo con los datos de entrenamiento</label>
+							<div class="file-field input-field">
+								<div class="btn teal">
+									<span><i class="material-icons">search</i></span>
+									<input id="FileTrainingData" type="file" accept=".txt">
+								</div>
+								<div class="file-path-wrapper">
+									<input type="text" class="file-path validate">
+								</div>
+							</div>
+						</div>
+
+						<!-- CHECKBOX SELECCIONAR DATOS ( ORIGINALES / NORMALIZADOS ) -->
+						<div class="row col m6 offset-m3 center-align InputMarginBottom">
+							<label>Los datos se usaran de forma</label>
+							<div class="col m6">
+								<input id="FormatDataOriginal" type="checkbox">
+								<label for="FormatDataOriginal">Original</label>
+							</div >
+							<div class="col m6">
+								<input id="FormatDataNormalized" type="checkbox">
+								<label for="FormatDataNormalized">Normalizados</label>
+							</div >
+						</div>
+
+						<!-- BOTON ENTRENAR RED -->
+						<div class="row col m6 offset-m3 center-align">
+							<div class="input-field">
+								<input id="BtnTraining" type="button" class="btn deep-orange darken-4" value="Entrenar">
+							</div>
+						</div>
+					</div>
+
+					<!-- TAB RESULTADOS DE ENTRENAMIENTO -->
+					<div id="tabTrainingResults" class="col s12">
+						<div id="BoxEraseTraining" class="row MarginBottom0">
+							<!-- BOTON DESCARGAR RED -->
+							<div class="col m6">
+								<div class="input-field lefth-align">
+									<a id="BtnDownload" class="btn deep-orange darken-4"><i class="material-icons">file_download</i> Descargar</a>
+								</div>
+							</div>
+
+							<!-- BOTON BORRAR ENTRENAMIENTO -->
+							<div class="col m6">
+								<div class="input-field right-align">
+									<input id="BtnEraseTraining" type="button" class="btn teal lighten-2" value="Borrar Entrenamiento">
+								</div>
+							</div>
+
+							<!-- GRAFICA -->
+							<div class="row col m12 MarginBottom0">
+								<div id="Graph"></div>
+							</div>
+
+							<div class="row col m12 MarginBottom0">
+								<h5 id="InfoLastValue" class="grey-text center-align"></h5>
+							</div>
+						</div>
+						
+
+					</div>
+				</div>
+
+				<!-- BLOQUE DERECHO / PROBAR RED -->
+				<div id="BOXTestNetwork" class="container col m9 BoxColor">
+
+					<!-- TAB LIST -->
+					<ul class="tabs">
+						<li class="tab col s4"><a href="#tabValidate" class="deep-orange-text text-darken-4">Validar</a></li>
+						<li class="tab col s4"><a href="#tabTest" class="deep-orange-text text-darken-4">Probar</a></li>
+						<li class="tab col s4"><a href="#tabTestResults" class="deep-orange-text text-darken-4">Resultados</a></li>
+					</ul>
+
+					<!-- TAB VALIDAR RED -->
+					<div id="tabValidate">
+						
+						<div class="row">
+							<h4 class="center-align">Validar la Red</h4>
+						</div>
+
+						<!-- INPUT VALIDACION CRUZADA -->
+						<div class="row col m6 offset-m3 center-align InputMarginBottom">
+							<div class="input-field">
+								<i class="material-icons prefix teal-text">blur_linear</i>
+								<label for="CrossValidation">Validación Cruzada</label>
+								<input id="CrossValidation" type="number" min="1">
+							</div>
+						</div>
+
+						<!-- BOTON CREAR RED -->
+						<div class="row col m6 offset-m3 center-align">
+							<div class="input-field">
+								<input id="BtnValidate" type="button" class="btn deep-orange darken-4" value="Probar">
+							</div>
+						</div>
+					</div>
+
+					<!-- TAB PROBAR RED -->
+					<div id="tabTest">
+						
+						<div class="col m6 offset-m3 InputMarginBottom">
+							<h4 class="center-align">Probar la Red</h4>
+							<p>
+								<input id="CheckboxData" type="checkbox">
+								<label for="CheckboxData">Datos de Entrenamiento</label>
+							</p>
+							<p>
+								<input id="CheckboxTextarea" type="checkbox">
+								<label for="CheckboxTextarea">Casos Especificos</label>
+							</p>
+						</div>
+
+						<div id="BoxDataTest" class="row col m8 offset-m2 center-align">
+							<div class="input-field">
+								<textarea id="DataTestTextarea" class="materialize-textarea"></textarea>
+								<label for="DataTestTextarea">Casos a Probar</label>
+							</div>
+						</div>
+
+						<!-- BOTON CREAR RED -->
+						<div class="row col m6 offset-m3 center-align">
+							<div class="input-field">
+								<input id="BtnTest" type="button" class="btn deep-orange darken-4" value="Probar">
+							</div>
+						</div>
+					</div>
+
+					<!-- TAB GRAFICA DE EVALUACION -->
+					<div id="tabTestResults">
+
+						<!-- GRAFICA CON VALORES DE EVALUACION -->
+						<div id="BoxGraphResults">
+							<div class="row col m12">
+								<div id="GraphEvaluation"></div>
+							</div>
+							<div class="row col m12 grey-text">
+								<h5 id="InfoTestError" class="center-align"></h5>
+							</div>
+
+						</div>
+
+						<!-- TABLA CON VALORES DE PRUEBA -->
+						<div id="BoxTableResults">
+							<div class="row col m12">
+								<table id="TableResults" class="striped responsive-table scroll">
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<!-- FOOTER DE INFORMACIÓN -->
+	<div class="page-footer grey darken-3">
+		<div class="container">
+			<div class="row">
+				<div class="col m6">
+					<h5>Ivan Bravo Mendoza</h5>
+					<p class="grey-text text-lighten-4">Ingeniería en Ciencias de la Computación</p>
+				</div>
+				<div class="col m4 offset-12">
+					<h5 class="white-text">Contacto</h5>
+					<ul>
+						<li><a href="mailto:ivan.bm.fcc@gmail.com?Subject=PaginaWeb" class="grey-text text-lighten-3">Email</a></li>
+						<li><a href="https://www.facebook.com/profile.php?id=100004856714951" class="grey-text text-lighten-3">Facebook</a></li>
+						<li><a href="tel:222-161-4429" class="grey-text text-lighten-3">Tel: (+52) 1 222-161-4429</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright grey darken-4">
+			<div class="container">
+				© 2017 Benemérita Universidad Autónoma de Puebla
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+	<script src="js/highcharts.js"></script>
+	<script src="js/exporting.js"></script>
+	<script src="js/fann.js"></script>
+	<script src="js/particles.js"></script>
+	<script src="js/particles-config.js"></script>
+
+	<script src="JsApp/MaterializeAdd.js"></script>
+	<script src="JsApp/Main.js"></script>
+
+</body>
+</html>

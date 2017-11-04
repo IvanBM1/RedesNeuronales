@@ -1,0 +1,51 @@
+.scroll {
+	display: block;
+	height: 400px;
+	overflow-y: auto;
+}
+
+.Margin0{
+	margin: 0px;
+}
+
+.MarginBottom0{
+	margin-bottom: 0px;
+}
+
+.parallax-container {
+	height: 677px;
+}
+
+.BoxColor{
+	margin-top: 10px;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.TitleColor{
+	color: #EEE;
+}
+
+.SubTitleColor{
+	color: #009688;
+}
+
+.LogoSize{
+	max-width: 85% !important;
+}
+
+.TitleMargin{
+	margin: 0px;
+}
+
+.InputMarginBottom{
+	margin-bottom: 0px;
+}
+
+.TopSpace{
+	margin-top: 2%;
+}
+
+#particles-js{
+background-color: #EEE;
+}
